@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dashboard - Zenathia.ai</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">Zenathia.ai</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+  <main>
+    <div class="card">
+      <h1>Welcome, {{ user_name }}!</h1>
+      <p style="font-size: 1.1em; margin-bottom: 30px;">Thank you for being part of our community.</p>
+    </div>
+
+    <div class="card" style="margin-top: 20px;">
+      <h2>Upcoming Events</h2>
+    </div>
+
+    <section class="container">
+      <div class="card">
+        <h3>Event A: Community Meetup</h3>
+        <p><strong>Date:</strong> Nov 20, 2025 • <strong>Location:</strong> Community Hall</p>
+        <p>Join local members for talks, networking, and a quick demo.</p>
+      </div>
+
+      <div class="card">
+        <h3>Event B: Workshop</h3>
+        <p><strong>Date:</strong> Dec 5, 2025 • <strong>Location:</strong> Room 101</p>
+        <p>A short hands-on workshop covering practical exercises.</p>
+      </div>
+
+      <div class="card">
+        <h3>Event C: Online Q&amp;A</h3>
+        <p><strong>Date:</strong> Jan 10, 2026 • <strong>Location:</strong> Zoom</p>
+        <p>A live Q&amp;A session — bring questions and connect with organizers.</p>
+      </div>
+
+      <div class="card">
+        <h3>Event D: Tech Talk</h3>
+        <p><strong>Date:</strong> Feb 2, 2026 • <strong>Location:</strong> Conference Center</p>
+        <p>An engaging session on emerging technologies and real-world use cases.</p>
+      </div>
+
+      <div class="card">
+        <h3>Event E: Hackathon</h3>
+        <p><strong>Date:</strong> Mar 15, 2026 • <strong>Location:</strong> Innovation Lab</p>
+        <p>A fast-paced hackathon where participants collaborate to build creative solutions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Event F: Annual Meetup</h3>
+        <p><strong>Date:</strong> Apr 28, 2026 • <strong>Location:</strong> Main Auditorium</p>
+        <p>The yearly community gathering featuring talks, awards, and networking sessions.</p>
+      </div>
+    </section>
+  </main>
+  <footer>© 2025 Zenathia.ai</footer>
+</body>
+</html>

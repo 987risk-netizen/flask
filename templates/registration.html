@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Zenathia.ai - Login/Register</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1 class="site-title">Zenathia.ai</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/dashboard">Dashboard</a>
+    </nav>
+  </header>
+  <main>
+    <div class="card auth-container">
+      <div class="tab-header">
+        <button class="tab-btn active" onclick="showTab('login')">Login</button>
+        <button class="tab-btn" onclick="showTab('register')">Register</button>
+      </div>
+
+      
+      <div id="login" class="tab-content active">
+        <h2>Login to Your Account</h2>
+        <form class="contact-form" method="POST" action="/login">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="you@example.com" required>
+          
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Enter password" required>
+          
+          <button type="submit">Login</button>
+        </form>
+        <p style="margin-top: 15px; text-align: center;">Don't have an account? <a href="#" onclick="showTab('register'); return false;">Register here</a></p>
+      </div>
+
+      
+      <div id="register" class="tab-content">
+        <h2>Create New Account</h2>
+        <form class="contact-form" method="POST" action="/register">
+          <label>Name</label>
+          <input type="text" name="name" placeholder="Your full name" required>
+          
+          <label>Email</label>
+          <input type="email" name="email" placeholder="you@example.com" required>
+          
+          <label>Password</label>
+          <input type="password" name="password" id="reg-password" placeholder="Enter password" required minlength="6">
+          
+          <label>Confirm Password</label>
+          <input type="password" name="confirm_password" id="confirm-password" placeholder="Re-enter password" required>
+          
+          <button type="submit">Register Now</button>
+        </form>
+        <p style="margin-top: 15px; text-align: center;">Already have an account? <a href="#" onclick="showTab('login'); return false;">Login here</a></p>
+      </div>
+    </div>
+  </main>
+  <footer>© 2025 Zenathia.ai</footer>
+
+  <script>
+    function showTab(tabName) {
+      
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach(btn => btn.classList.remove('active'));
+      
+      
+      document.getElementById(tabName).classList.add('active');
+      
+      
+      event.target.classList.add('active');
+    }
+
+    
+    document.querySelector('#register form').addEventListener('submit', function(e) {
+      const password = document.getElementById('reg-password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      
+      if (password !== confirmPassword) {
+        e.preventDefault();
+        alert('Passwords do not match!');
+        return false;
+      }
+    });
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        alert('{{ messages[0] }}');
+      {% endif %}
+    {% endwith %}
+  </script>
+</body>
+</html>
